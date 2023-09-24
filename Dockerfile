@@ -27,8 +27,6 @@ WORKDIR /opt/src
 
 RUN chown -R 1000:1000 /opt/src
 RUN chmod -R 777 /opt/src
-RUN chown -R 1000:1000 /home
-RUN chmod -R 777 /home
 ENV TMPDIR /opt/src
 
 # Switch to a non-root user
