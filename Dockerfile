@@ -9,6 +9,8 @@ COPY ./Manifest.toml /opt
 ENV JULIA_PROJECT=/opt/
 ENV JULIA_DEPOT_PATH /opt/env
 
+
+# Install packages
 RUN julia --project
 RUN julia -e 'using Pkg; Pkg.activate("."); Pkg.instantiate()'
 
@@ -23,11 +25,13 @@ RUN chmod +x /opt/entry_point.sh
 WORKDIR /opt/src
 
 
-# Switch to a non-root user
-ENV TMPDIR /opt/src
 RUN chown -R 1000:1000 /opt/src
 RUN chmod -R 777 /opt/src
+RUN chown -R 1000:1000 /home
+RUN chmod -R 777 /home
+ENV TMPDIR /opt/src
 
+# Switch to a non-root user
 USER 1000
 
 # Set the entrypoint

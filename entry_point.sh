@@ -14,8 +14,8 @@ case $command in
 
   train)
   {  
-    julia --compiled-modules=no train_to_script.jl
-    julia --compiled-modules=no train.jl
+    julia  train_to_script.jl
+    julia  train.jl
   }
     ;;
 
@@ -23,8 +23,8 @@ case $command in
   predict)
   {
 
-    julia --compiled-modules=no predict_to_script.jl
-    julia --compiled-modules=no predict.jl
+    julia  predict_to_script.jl
+    julia predict.jl
   }
     ;;
 
